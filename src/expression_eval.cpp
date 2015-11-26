@@ -142,7 +142,7 @@ utree expression::eval_function(utree const& node)
 
 utree expression::fix_color_range(utree const& node) 
 {
-    BOOST_ASSERT(is_color(node) == TRUE);
+    BOOST_ASSERT(is_color(node));
     BOOST_ASSERT(node.size() == 4);
 
     typedef utree::const_iterator iter;

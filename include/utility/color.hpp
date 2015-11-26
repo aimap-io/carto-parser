@@ -1,8 +1,8 @@
 #ifndef COLOR_H
 #define COLOR_H
 
-#include <boost/spirit/include/support_utree.hpp>
 #include <mapnik/color.hpp>
+#include <boost/spirit/include/support_utree.hpp>
 
 namespace carto {
 

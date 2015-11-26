@@ -6,11 +6,11 @@
     file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 ==============================================================================*/
 
-#include <string>
-
 #ifndef MAPNIK_SOURCE_LOCATION_H
 #define MAPNIK_SOURCE_LOCATION_H
- 
+
+#include <string>
+
 namespace carto {
  
 struct source_location

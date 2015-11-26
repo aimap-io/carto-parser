@@ -12,7 +12,7 @@
 #include <boost/program_options.hpp>
 #include <boost/algorithm/string.hpp>
 
-
+#define MAPNIKDIR "/usr/local/lib/mapnik"
 
 int main(int argc, char **argv) {
 

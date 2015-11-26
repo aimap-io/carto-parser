@@ -8,16 +8,16 @@
 #ifndef GENERATE_FILTER_H
 #define GENERATE_FILTER_H
 
+#include <mapnik/rule.hpp>
+
 #include <iosfwd>
 #include <sstream>
 
 #include <parse/parse_tree.hpp>
 #include <parse/filter_grammar.hpp>
 
-#include <utility/environment.hpp>
 #include <utility/utree.hpp>
-
-#include <mapnik/rule.hpp>
+#include <utility/environment.hpp>
 
 namespace carto {
 

@@ -1,18 +1,18 @@
 #include <iostream>
 #include <fstream>
 
-#include <mapnik/load_map.hpp>
-#include <mapnik/graphics.hpp>
-#include <mapnik/agg_renderer.hpp>
-#include <mapnik/image_util.hpp>
+#include <mapnik/map.hpp>
 #include <mapnik/save_map.hpp>
+#include <mapnik/load_map.hpp>
+#include <mapnik/image_any.hpp>
+#include <mapnik/image_util.hpp>
+#include <mapnik/agg_renderer.hpp>
 #include <mapnik/datasource_cache.hpp>
-#include <mapnik/font_engine_freetype.hpp>
 
 #include <boost/program_options.hpp>
 #include <boost/algorithm/string.hpp>
 
-
+#define MAPNIKDIR "/usr/local/lib/mapnik"
 
 int main(int argc, char **argv) {
     
@@ -79,8 +79,8 @@ int main(int argc, char **argv) {
         m.zoom_all();
         //m.zoom_to_box(mapnik::box2d<double>(-8584936.07589,4691869.09667,-8561639.82286,4720949.89071));
 
-        mapnik::image_32 buf(m.width(),m.height());
-        mapnik::agg_renderer<mapnik::image_32> ren(m,buf);
+        mapnik::image<mapnik::rgba8_t> buf(m.width(),m.height());
+        mapnik::agg_renderer<mapnik::image<mapnik::rgba8_t>> ren(m,buf);
         ren.apply();
 
         mapnik::save_to_file(buf,"demo.png","png");

@@ -1,17 +1,28 @@
 #ifndef EXPRESSION_GRAMMAR_H
 #define EXPRESSION_GRAMMAR_H
 
+#include <mapnik/css_color_grammar.hpp>
+
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-parameter"
+#pragma GCC diagnostic ignored "-Wunused-local-typedef"
+#pragma GCC diagnostic ignored "-Wshadow"
+#pragma GCC diagnostic ignored "-Wsign-conversion"
+#pragma GCC diagnostic ignored "-Wconversion"
 #include <boost/spirit/include/phoenix.hpp>
 #include <boost/spirit/include/support_utree.hpp>
-
-#include <mapnik/css_color_grammar_def.hpp>
+#pragma GCC diagnostic pop
 
 #include <utility/color.hpp>
-#include <parse/error_handler.hpp>
 #include <parse/annotator.hpp>
 #include <parse/node_types.hpp>
+#include <parse/error_handler.hpp>
 
 namespace carto {
+
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Woverloaded-shift-op-parentheses"
+#pragma GCC diagnostic ignored "-Wunsequenced"
 
 namespace phoenix = boost::phoenix;
 namespace ascii = boost::spirit::ascii;
@@ -116,6 +127,7 @@ struct expression_parser : qi::grammar< Iterator, utree(), ascii::space_type>
     }
 };
 
+#pragma GCC diagnostic pop
 
 }
 

@@ -8,13 +8,20 @@
 #ifndef PARSE_TREE_H
 #define PARSE_TREE_H
 
-#include <utility/carto_error.hpp>
-#include <utility/position_iterator.hpp>
-
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-parameter"
+#pragma GCC diagnostic ignored "-Wunused-local-typedef"
+#pragma GCC diagnostic ignored "-Wshadow"
+#pragma GCC diagnostic ignored "-Wsign-conversion"
+#pragma GCC diagnostic ignored "-Wconversion"
 #include <boost/spirit/include/qi.hpp>
 #include <boost/spirit/include/support_utree.hpp>
 #include <boost/spirit/home/support/assert_msg.hpp>
 #include <boost/spirit/include/support_istream_iterator.hpp>
+#pragma GCC diagnostic pop
+
+#include <utility/carto_error.hpp>
+#include <utility/position_iterator.hpp>
 
 #include <parse/json_grammar.hpp>
 

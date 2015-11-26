@@ -9,20 +9,21 @@
 #define CARTO_GRAMMAR_H
 
 #include <limits>
-
+#include <mapnik/css_color_grammar.hpp>
+#include <mapnik/css_color_grammar_impl.hpp>
 #include <boost/spirit/include/phoenix.hpp>
 
-#include <mapnik/css_color_grammar_def.hpp>
-
-
 #include <utility/color.hpp>
-#include <parse/filter_grammar.hpp>
-#include <parse/expression_grammar.hpp>
-#include <parse/error_handler.hpp>
 #include <parse/annotator.hpp>
 #include <parse/node_types.hpp>
+#include <parse/error_handler.hpp>
+#include <parse/filter_grammar.hpp>
+#include <parse/expression_grammar.hpp>
 
 namespace carto {
+
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Woverloaded-shift-op-parentheses"
 
 namespace phoenix = boost::phoenix;
 namespace ascii = boost::spirit::ascii;
@@ -165,5 +166,8 @@ struct carto_parser : qi::grammar< Iterator, utree::list_type(), ascii::space_ty
         //BOOST_SPIRIT_DEBUG_NODE(style_name);
     }
 };
+
+#pragma GCC diagnostic pop
+
 }
 #endif

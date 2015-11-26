@@ -10,12 +10,14 @@
 
 #include <iosfwd>
 #include <sstream>
+#include <fstream>
 
 #include <mapnik/map.hpp>
 #include <mapnik/layer.hpp>
 #include <mapnik/params.hpp>
 #include <mapnik/datasource.hpp>
 #include <mapnik/datasource_cache.hpp>
+#include <mapnik/feature_type_style.hpp>
 
 #include <boost/filesystem.hpp>
 #include <boost/algorithm/string.hpp>
@@ -23,9 +25,6 @@
 #include <mss_parser.hpp>
 #include <parse/parse_tree.hpp>
 #include <parse/json_grammar.hpp>
-
-#include <utility/utree.hpp>
-#include <utility/carto_error.hpp>
 
 namespace carto {
 
@@ -49,7 +48,7 @@ mml_parser::mml_parser(std::string const& filename, bool strict_)
     path(filename) 
 {
 
-    std::ifstream file(filename.c_str(), std::ios_base::in);
+    std::ifstream file(filename, std::ios_base::in);
 
     if (!file)
         throw carto_error(std::string("Cannot open input file: ")+filename);
@@ -202,7 +201,7 @@ void mml_parser::parse_map(mapnik::Map& map)
             }
             
             if (lselect_it == lselect_end && sselect_it != sselect_end)
-                map.getLayer(i).add_style((*style_it).first);
+                map.get_layer(i).add_style((*style_it).first);
         }
     }
 }
@@ -244,7 +243,7 @@ void mml_parser::parse_layer(mapnik::Map& map, utree const& node)
     std::string lyr_name, lyr_id, lyr_class;
     
     typedef utree::const_iterator iter;
-    iter it  = node.begin(), 
+    iter it  = node.begin(),
          end = node.end();
     
     for (; it != end; ++it) {
@@ -266,9 +265,9 @@ void mml_parser::parse_layer(mapnik::Map& map, utree const& node)
         } else if (key == "status") {
             lyr.set_active( as<bool>(value) );
         } else if (key == "minzoom") {
-            lyr.set_min_zoom( value.get<double>() );
+            lyr.set_minimum_scale_denominator( value.get<double>() );
         } else if (key == "maxzoom") {
-            lyr.set_max_zoom( value.get<double>() );
+            lyr.set_maximum_scale_denominator( value.get<double>() );
         } else if (key == "queryable") {
         lyr.set_queryable( value.get<bool>() );
         } else if (key == "Datasource") {
@@ -279,7 +278,7 @@ void mml_parser::parse_layer(mapnik::Map& map, utree const& node)
         }
     }
     
-    map.addLayer(lyr);
+    map.add_layer(lyr);
     
     layer_selectors.push_back( std::vector<std::string>() );
     int i = layer_selectors.size()-1;
@@ -321,7 +320,7 @@ void mml_parser::parse_Datasource(mapnik::layer& lyr, utree const& node)
     }
     
     try {
-        boost::shared_ptr<mapnik::datasource> ds = mapnik::datasource_cache::instance().create(params,false);
+        auto ds = mapnik::datasource_cache::instance().create(params);
         lyr.set_datasource(ds);
     } catch (std::exception& e) {
         

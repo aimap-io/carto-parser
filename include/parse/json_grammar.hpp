@@ -11,10 +11,17 @@
 
 #include <limits>
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-parameter"
+#pragma GCC diagnostic ignored "-Wunused-local-typedef"
+#pragma GCC diagnostic ignored "-Wshadow"
+#pragma GCC diagnostic ignored "-Wsign-conversion"
+#pragma GCC diagnostic ignored "-Wconversion"
 #include <boost/spirit/include/phoenix.hpp>
+#pragma GCC diagnostic pop
 
-#include <parse/error_handler.hpp>
 #include <parse/annotator.hpp>
+#include <parse/error_handler.hpp>
 
 namespace carto {
 
@@ -30,6 +37,9 @@ enum node_type
     JSON_OBJECT,
     JSON_ARRAY
 };
+
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Woverloaded-shift-op-parentheses"
 
 template<typename Iterator>
 struct json_parser : qi::grammar< Iterator, utree(), ascii::space_type>
@@ -116,6 +126,7 @@ struct json_parser : qi::grammar< Iterator, utree(), ascii::space_type>
     }
 };
 
+#pragma GCC diagnostic pop
 
 }
 

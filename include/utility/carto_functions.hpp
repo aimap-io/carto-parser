@@ -1,13 +1,19 @@
 #ifndef CARTO_FUNCTIONS_H
 #define CARTO_FUNCTIONS_H
 
-#include <boost/spirit/include/support_utree.hpp>
-
 #include <mapnik/color.hpp>
+
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-parameter"
+#pragma GCC diagnostic ignored "-Wunused-local-typedef"
+#pragma GCC diagnostic ignored "-Wshadow"
+#pragma GCC diagnostic ignored "-Wsign-conversion"
+#pragma GCC diagnostic ignored "-Wconversion"
+#include <boost/spirit/include/support_utree.hpp>
+#pragma GCC diagnostic pop
 
 #include <utility/utree.hpp>
 #include <utility/round.hpp>
-
 
 namespace carto {
 

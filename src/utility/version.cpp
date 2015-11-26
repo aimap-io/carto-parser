@@ -3,13 +3,12 @@
 
 #include <iostream>
 
-#include <utility/version.hpp>
 #include <mapnik/version.hpp>
-
-#include <boost/algorithm/string.hpp>
-#include <boost/lexical_cast.hpp>
 #include <boost/tokenizer.hpp>
+#include <boost/lexical_cast.hpp>
+#include <boost/algorithm/string.hpp>
 
+#include <utility/version.hpp>
 
 bool version_from_string(std::string min_version_string)
 {

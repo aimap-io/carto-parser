@@ -1,8 +1,5 @@
 #include <utility/environment.hpp>
 
-#include <boost/spirit/include/support_utree.hpp>
-#include <boost/unordered_map.hpp>
-
 namespace carto {
 
 namespace spirit = boost::spirit;

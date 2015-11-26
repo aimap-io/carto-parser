@@ -12,6 +12,7 @@
 #include <mapnik/layer.hpp>
 
 #include <boost/optional.hpp>
+#include <boost/algorithm/algorithm.hpp>
 
 #include <parse/parse_tree.hpp>
 #include <utility/utree.hpp>

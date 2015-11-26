@@ -6,10 +6,9 @@
 #include <utility/utree.hpp>
 #include <utility/environment.hpp>
 #include <utility/carto_functions.hpp>
+#include <utility/position_iterator.hpp>
 
 #include <parse/expression_grammar.hpp>
-
-#include <utility/position_iterator.hpp>
 
 namespace carto {
 

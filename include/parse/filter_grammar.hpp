@@ -1,13 +1,19 @@
 #ifndef FILTER_GRAMMAR_H
 #define FILTER_GRAMMAR_H
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-parameter"
+#pragma GCC diagnostic ignored "-Wunused-local-typedef"
+#pragma GCC diagnostic ignored "-Wshadow"
+#pragma GCC diagnostic ignored "-Wsign-conversion"
+#pragma GCC diagnostic ignored "-Wconversion"
 #include <boost/spirit/include/support_utree.hpp>
 #include <boost/spirit/include/phoenix.hpp>
+#pragma GCC diagnostic pop
 
-#include <parse/expression_grammar.hpp>
-#include <parse/error_handler.hpp>
 #include <parse/annotator.hpp>
-
+#include <parse/error_handler.hpp>
+#include <parse/expression_grammar.hpp>
 #include <utility/position_iterator.hpp>
 
 namespace carto {

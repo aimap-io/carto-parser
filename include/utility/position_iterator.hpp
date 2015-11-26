@@ -10,8 +10,8 @@
 #define MAPNIK_POSITION_ITERATOR_H
 
 #include <boost/detail/iterator.hpp>
-#include <boost/iterator/iterator_adaptor.hpp>
 #include <boost/range/iterator_range.hpp>
+#include <boost/iterator/iterator_adaptor.hpp>
 
 #include <utility/source_location.hpp>
  

@@ -6,4 +6,4 @@
 bool version_from_string(std::string min_version_string);
 
 #endif
-    
+

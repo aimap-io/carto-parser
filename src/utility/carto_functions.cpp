@@ -1,13 +1,5 @@
 #include <utility/carto_functions.hpp>
 
-#include <boost/spirit/include/support_utree.hpp>
-
-#include <mapnik/color.hpp>
-
-#include <utility/utree.hpp>
-#include <utility/round.hpp>
-
-
 namespace carto {
 
 namespace spirit = boost::spirit;
